@@ -8,7 +8,7 @@ Primera API en Laravel. Es un CRUD de usuarios.
 
 ### Link de la Api
 
-- **[Imagen de la Api](/public/api.PNG)**
+- **[Imagen de la Api](https://rgbgsfcc1z.laravel-sail.site/public/api.PNG)**
 
 
 ## License

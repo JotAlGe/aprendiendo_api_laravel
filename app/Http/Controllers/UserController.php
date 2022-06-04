@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
+
 
 class UserController extends Controller
 {
@@ -24,9 +27,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $user)
     {
-        //return new UserResource(User::create($request->all()));
+        User::create($user->validated());
     }
 
     /**
@@ -47,9 +50,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(User $request, UserUpdateRequest $user)
     {
-        return new UserResource(User::findOrFail($id));
+        return $request->update($user->validated());
     }
 
     /**
